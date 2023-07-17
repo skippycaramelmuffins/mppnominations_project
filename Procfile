@@ -1,0 +1,1 @@
+web : gunicorn mppnominations.wsgi --log-file -

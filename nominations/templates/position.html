@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+    body {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        font-family: 'Oxygen', sans-serif;
+        color: #444;
+        font-size: 15px;
+        line-height: 18px;
+        font-weight: 300;
+    }
+
+    header {
+        margin: 0;
+        background: linear-gradient(240deg, #720e9e, #33006f);;
+        height: 65px;
+        padding: 1px;
+    }
+
+    article {
+        margin: 40px 30px;
+    }
+
+    h1 {
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 1px;
+        font-size: 2.3em;
+        line-height: 44px;
+        text-transform: uppercase;
+        color: #161414;
+        font-weight: 900;
+        margin: 0;
+        padding: 10px 0 0 30px;
+        letter-spacing: 2px;
+        align-items: center;
+        display: flex;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    h2 { 
+        margin: 20px 20px 10px 20px;
+        font-weight: 900;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    .custom-button {
+        background-color: #33006f; /* Change to desired background color */
+        color: white; /* Change to desired text color */
+        padding: 10px 20px; /* Adjust padding as needed */
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .custom-button a{
+        color: white;
+    }
+
+    .custom-button:hover {
+        background-color: #720e9e; /* Change to desired background color on hover */
+    }
+
+    .box1, .box2 {
+        padding-top: 30px;
+        text-align: center; /* Center the buttons horizontally */
+        margin-bottom: 5px; /* Add some spacing between the boxes */
+    }
+
+    .box2 {
+        padding-top: 10px;
+        text-align: center; /* Center the buttons horizontally */
+        margin-bottom: 5px; /* Add some spacing between the boxes */
+    }
+
+    /* Table Layout */
+
+    table.vit {
+        padding: 10px;
+        margin: 20px 0 0 200px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        background: #ffffff;
+        color: black;
+    }
+
+    table.vit th, table.vit td {
+        text-align: center;
+    }
+
+    table.vit thead {
+        line-height: 12px;
+        background: #33006f;
+        text-transform: uppercase;
+    }
+
+    table.vit thead th {
+        color: #fff;
+        padding: 10px;
+        letter-spacing: 1px;
+        vertical-align: bottom;
+    }
+
+    table.vit thead th:nth-child(1) {
+        width: 15%;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    table.vit thead th:nth-child(2) {
+        width: 15%;
+    }
+
+    table.vit thead th:nth-child(3) {
+        width: 15%;
+    }
+
+    table.vit thead th:nth-child(4) {
+        width: 15%;
+    }
+
+    table.vit tbody {
+        font-size: 1em;
+        line-height: 15px;
+    }
+
+    table.vit tbody tr {
+        border-top: 2px solid #58126A;
+        transition: background 0.6s, color 0.6s;
+    }
+
+    table.vit tbody tr:nth-child(even) {
+        background: white;
+    }
+
+    table.vit tbody tr:hover {
+        color: white;
+        background: #58126A;
+        font-weight: 600;
+    }
+
+    table.vit tbody td {
+        padding: 12px;
+    }
+
+    table.vit tbody td img {
+        width: 60px;
+    }
+
+    table.vit tbody tr:hover td:first-child {
+        background:black;
+    }
+
+    table.vit tbody td:first-child {
+        text-align: left;
+        padding-left: 20px;
+        font-weight: 700;
+        background: rgba(109, 176, 231, 0.35);
+        transition: background 0.6s;
+
+    }
+    </style>
+</head>
+<body>
+    <h2>The available positions are as follows;</h2>
+    <div class="box1">
+        <table class="vit">
+            <tr>
+                <th>Position</th>
+                <th>Description</th>
+            </tr>
+            {% for position in positions %}
+            <tr>
+                <td>{{ position.position }}</td>
+                <td>{{ position.description }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

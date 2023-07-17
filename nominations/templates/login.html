@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8e78b0b289.js" crossorigin="anonymous"></script>
+    <title>User Log In</title>
+    <style>
+      *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    }
+
+    .container{
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(240deg, #720e9e, #33006f);
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .form-box{
+        width: 90%;
+        max-width: 450px;
+        position: absolute;
+        top: -22%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        background: white;
+        padding: 50px 40px 70px;
+        text-align: center;
+    }
+
+    .form-box h1{
+        font-size: 30px;
+        margin-bottom: 60px;
+        color: #58126A;
+        position: relative;
+    }
+
+    .form-box h1::after{
+        content: '';
+        width: 30px;
+        height: 4px;
+        border-radius: 3px;
+        background: linear-gradient(136deg, #58126A, #771D32);
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .input-field{
+        background: #eaeaea;
+        margin: 15px 0;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        max-height: 65px;
+        transition: max-height 0.5s;
+        overflow: hidden;
+    }
+
+    input{
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 18px 18px;
+    }
+
+    .input-field i{
+        margin-left: 15px;
+        color: #999;
+    }
+
+    form p{
+        text-align: left;
+        font-size: 13px;
+    }
+
+    form p a{
+        text-decoration: none;
+        color: #3c00a0;
+    }
+
+    .btn-field{
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Change from 'space-between' to 'center' */
+        margin-bottom: 20px; /* Add margin-top for spacing */
+    }
+
+    .btn-field button{
+        flex-basis: 40%;
+        background: linear-gradient(136deg, #58126A, #771D32);;
+        color: white;
+        height: 40px;
+        border-radius: 20px;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        transition: background 1s;
+        width: 120px; /* Set a specific width for the button */
+    }
+
+    .input-group{
+        height: 150px;
+    }
+
+    .home{
+        display: flex;
+        justify-content: center;
+        font-size: 13px;
+
+    }
+    </style>
+</head>
+<body>
+    <div class="login-wrap">
+    
+        <!-- Error message section -->
+        {% if error_message %}
+          <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+    
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Log In</h1>
+            <form id="form" action="" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="student_email" placeholder="Email" name="student_email" required >
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="student_password" placeholder="Password" name="student_password" required>
+                    </div>
+                </div>
+                <div class="btn-field">
+                    <button type="submit">Log in</button>
+                </div>
+                <p class="re">Don't have account, <a class="re1" href="{% url 'register' %}">register now!!</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

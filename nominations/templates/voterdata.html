@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT INFORMATION</title>
+    <style>
+        table, tr, td {border: 1pt solid;}
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oxygen);
+
+    /* Page layout */
+
+    body {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        font-family: 'Oxygen', sans-serif;
+        color: #444;
+        font-size: 15px;
+        line-height: 18px;
+        font-weight: 300;
+    }
+
+    header {
+        margin: 0;
+        background: linear-gradient(240deg, #720e9e, #33006f);;
+        height: 65px;
+        padding: 1px;
+    }
+
+    article {
+        margin: 40px 30px;
+    }
+
+    h1 {
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 1px;
+        font-size: 2.3em;
+        line-height: 44px;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 900;
+        margin: 0;
+        padding: 10px 0 0 30px;
+        letter-spacing: 2px;
+        align-items: center;
+        display: flex;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    h2 { 
+        margin: 20px 20px 10px 20px;
+        font-weight: 900;
+    }
+
+    /* Table Layout */
+
+    table.vitamins {
+        margin: 20px 0 0 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        background: #ffffff;
+        color: black;
+    }
+
+    table.vitamins th, table.vitamins td {
+        text-align: center;
+    }
+
+    table.vitamins thead {
+        line-height: 12px;
+        background: #33006f;
+        text-transform: uppercase;
+    }
+
+    table.vitamins thead th {
+        color: #fff;
+        padding: 10px;
+        letter-spacing: 1px;
+        vertical-align: bottom;
+    }
+
+    table.vitamins thead th:nth-child(1) {
+        width: 20%;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    table.vitamins thead th:nth-child(2) {
+        width: 30%;
+    }
+
+    table.vitamins thead th:nth-child(3) {
+        width: 35%;
+    }
+
+    table.vitamins thead th:nth-child(4) {
+        width: 15%;
+        white-space: nowrap;
+    }
+
+    table.vitamins thead th:nth-child(5) {
+        width: 35%;
+    }
+
+    table.vitamins tbody {
+        font-size: 1em;
+        line-height: 15px;
+    }
+
+    table.vitamins tbody tr {
+        border-top: 2px solid #58126A;
+        transition: background 0.6s, color 0.6s;
+    }
+
+    table.vitamins tbody tr:nth-child(even) {
+        background: white;
+    }
+
+    table.vitamins tbody tr:hover {
+        color: white;
+        background: #58126A;
+        font-weight: 900;
+    }
+
+    table.vitamins tbody td {
+        padding: 12px;
+    }
+
+    table.vitamins tbody tr:hover td:first-child {
+        background:black;
+    }
+
+    table.vitamins tbody td:first-child {
+        text-align: left;
+        padding-left: 20px;
+        font-weight: 700;
+        background: rgba(109, 176, 231, 0.35);
+        transition: background 0.6s;
+    }
+
+    table.vitamins tfoot {
+        font-size: 0.8em;
+    }
+
+    table.vitamins tfoot tr {
+        border-top: 2px solid #2e63e7;
+    }
+
+    table.vitamins tfoot td {
+        color: rgba(255,255,215,0.6);
+        text-align: left;
+        line-height: 15px;
+        padding: 15px 20px;
+    }
+
+    .reference{
+        white-space: nowrap;
+    }
+    </style>
+</head>
+<html>
+    <body>
+        <header>
+            <h1>KOLEJ PROFESSIONAL MARA BERANANG</h1>
+            <h2>STUDENT INFORMATION</h2>
+        </header>
+        <article>
+            <table class="vitamins">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Address</th>
+                        <th>Contact Number</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in data %}
+                    <tr>
+                        <td>{{data.studentid}}</td>
+                        <td>{{data.student_name}} </td>
+                        <td>{{data.address}} </td>
+                        <td>{{data.contact_number}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br><br>
+            <div class="reference">
+                <a href="{% url 'voter' %}">Student Data Enrollment</a>
+                <a href="{% url 'index' %}">Back</a>
+            </div>
+            
+        </article>
+    </body>
+</html>

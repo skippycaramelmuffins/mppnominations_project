@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT DATA ENROLLMENT</title>
+    <script src="https://kit.fontawesome.com/8e78b0b289.js" crossorigin="anonymous"></script>
+    {% load static %}
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+    }
+
+    .container{
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(240deg, #720e9e, #33006f);
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .form-box{
+        width: 100%;
+        max-width: 450px;
+        position: absolute;
+        top: -39%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        background: white;
+        padding: 50px 40px 40px;
+        text-align: center;
+    }
+
+    .form-box h1{
+        font-size: 30px;
+        margin-bottom: 60px;
+        color: #58126A;
+        position: relative;
+    }
+
+    .form-box h1::after{
+        content: '';
+        width: 30px;
+        height: 4px;
+        border-radius: 3px;
+        background: linear-gradient(136deg, #58126A, #771D32);
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .input-field{
+        background: #eaeaea;
+        margin: 15px 0;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        max-height: 65px;
+        transition: max-height 0.5s;
+        overflow: hidden;
+    }
+
+    input{
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 18px 18px;
+    }
+
+    .input-field i{
+        margin-left: 15px;
+        color: #999;
+    }
+
+    form p{
+        text-align: left;
+        font-size: 13px;
+    }
+
+    form p a{
+        text-decoration: none;
+        color: #3c00a0;
+    }
+
+    .btn-field{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 9px 0px 0px 0px;
+        padding: 9px 0px 0px 0px;
+    }
+
+    .btn-field input{
+        flex-basis: 20%;
+        background: linear-gradient(136deg, #58126A, #771D32);
+        color: white;
+        height: 50px;
+        border-radius: 40px;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+    }
+
+    .input-group{
+        height: 250px;
+    }
+
+    .home{
+        display: flex;
+        justify-content: center;
+        font-size: 13px;
+    }
+
+    .references {
+    text-align: center!important;
+    width: 100%;
+    top: -50px;
+    margin: 9px 0px 0px 0px;
+    padding: 9px 0px 0px 0px;
+}
+
+.references a {
+    font-size: 1.2em;
+    color: black;
+    font-weight: 100;
+    top: 50px;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.references a:hover {
+    background-color:#33006f;
+    color: white;
+}
+
+.references a:focus {
+    outline: none;
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1 id="title">Student Data Enrollment</h1>
+        <form id="form" action="" method='POST'>
+            <div class="input-group">
+                {% csrf_token %}
+                <!--<div class="input-field">
+                    <i class="fa-solid fa-solid fa-id-badge"></i>
+                    <input name="studentid" type="text" placeholder="Student ID">
+                </div>-->
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input name="student_name" type="text" placeholder="Student Name">
+                </div>
+                <!--<div class="input-field">
+                    <i class="fa-solid fa-address-book"></i>
+                    <input name="address" type="text" placeholder="Address">
+                </div>-->
+                <div class="input-field">
+                    <i class="fa-solid fa-phone"></i>
+                    <input name="contact_number" type="text" placeholder="Contact Number">
+                </div>
+            </div>
+            <div class="btn-field">
+                <input type="submit" value="SAVE">
+            </div>
+            {{ message }}
+            <div class="references">
+                <button><a href="{% url 'voterdata' %}">Student Information</a></button>
+                <button><a href="{% url 'index' %}">Back</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

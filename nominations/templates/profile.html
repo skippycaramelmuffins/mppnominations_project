@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        font-family: 'Oxygen', sans-serif;
+        color: #444;
+        font-size: 15px;
+        line-height: 18px;
+        font-weight: 300;
+    }
+
+    header {
+        margin: 0;
+        background: linear-gradient(240deg, #720e9e, #33006f);;
+        height: 65px;
+        padding: 1px;
+    }
+
+    article {
+        margin: 40px 30px;
+    }
+
+    header h1 {
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 1px;
+        font-size: 2.3em;
+        line-height: 44px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 900;
+        margin: 0;
+        padding: 10px 0 0 30px;
+        letter-spacing: 2px;
+        align-items: center;
+        display: flex;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    h1{
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 1px;
+        font-size: 2.3em;
+        line-height: 44px;
+        text-transform: uppercase;
+        color: #f7981d;
+        font-weight: 900;
+        margin: 0;
+        padding: 10px 0 0 30px;
+        letter-spacing: 2px;
+        align-items: center;
+        display: flex;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    h2 { 
+        margin: 20px 20px 10px 20px;
+        font-weight: 900;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KOLEJ PROFESSIONAL MARA BERANANG</h1>
+    </header>
+    <h1>Welcome, {{ voter.student_name }}!</h1>
+    <article>
+        <h2>User Profile</h2>
+
+        <p>Name: {{ voter.student_name }}</p>
+        <p>Contact: {{ voter.contact_number }}</p>
+        <p>Address: {{ voter.address }}</p>
+        <p>Email: {{ voter.student_email }}</p>
+
+        <button type="submit"><a href="{% url 'dashboard' studentid=voter.pk %}">Back</a></button>
+    </article>
+    
+
+</body>
+</html>

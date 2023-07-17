@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    {% load static %}
+    <style>
+        table, tr, td {border: 1pt solid;}
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oxygen);
+
+    /* Page layout */
+
+    body {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        font-family: 'Oxygen', sans-serif;
+        color: #444;
+        font-size: 15px;
+        line-height: 18px;
+        font-weight: 300;
+    }
+
+    header {
+        margin: 0;
+        background: linear-gradient(240deg, #720e9e, #33006f);;
+        height: 65px;
+        padding: 1px;
+    }
+
+    article {
+        margin: 40px 30px;
+    }
+
+    header h1 {
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 1px;
+        font-size: 2.3em;
+        line-height: 44px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 900;
+        margin: 0;
+        padding: 10px 0 0 30px;
+        letter-spacing: 2px;
+        align-items: center;
+        display: flex;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    h1{
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 1px;
+        font-size: 2.3em;
+        line-height: 44px;
+        text-transform: uppercase;
+        color: #f7981d;
+        font-weight: 900;
+        margin: 0;
+        padding: 10px 0 0 30px;
+        letter-spacing: 2px;
+        align-items: center;
+        display: flex;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    h2 { 
+        margin: 20px 20px 10px 20px;
+        font-weight: 900;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+    }
+
+    .box1 {
+        padding-top: 10px;
+        text-align: center; /* Center the buttons horizontally */
+        margin-bottom: 5px; /* Add some spacing between the boxes */
+    }
+
+    .box2 {
+        padding-top: 10px;
+        text-align: center; /* Center the buttons horizontally */
+        margin-bottom: 5px; /* Add some spacing between the boxes */
+    }
+
+    /* Table Layout */
+    table.vitamins {
+        margin: 20px 0 0 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        background: #ffffff;
+        color: black;
+    }
+
+    table.vitamins th, table.vitamins td {
+        text-align: center;
+    }
+
+    table.vitamins thead {
+        line-height: 12px;
+        background: #33006f;
+        text-transform: uppercase;
+    }
+
+    table.vitamins thead th {
+        color: #fff;
+        padding: 10px;
+        letter-spacing: 1px;
+        vertical-align: bottom;
+    }
+
+    table.vitamins thead th:nth-child(1) {
+        width: 15%;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    table.vitamins thead th:nth-child(2) {
+        width: 15%;
+    }
+
+    table.vitamins thead th:nth-child(3) {
+        width: 15%;
+    }
+
+    table.vitamins thead th:nth-child(4) {
+        width: 15%;
+    }
+
+    table.vitamins thead th:nth-child(5) {
+        width: 15%;
+    }
+
+    table.vitamins thead th:nth-child(6) {
+        width: 15%;
+    }
+
+    table.vitamins thead th:nth-child(7) {
+        width: 45%;
+        white-space: nowrap;
+    }
+
+    table.vitamins thead th:nth-child(8) {
+        width: 15%;
+    }
+
+    table.vitamins tbody {
+        font-size: 1em;
+        line-height: 15px;
+    }
+
+    table.vitamins tbody tr {
+        border-top: 2px solid #58126A;
+        transition: background 0.6s, color 0.6s;
+    }
+
+    table.vitamins tbody tr:nth-child(even) {
+        background: white;
+    }
+
+    table.vitamins tbody tr:hover {
+        color: white;
+        background: #58126A;
+        font-weight: 600;
+    }
+
+    table.vitamins tbody td {
+        padding: 12px;
+    }
+
+    table.vitamins tbody td img {
+        width: 150px;
+    }
+
+    table.vitamins tbody tr:hover td:first-child {
+        background:black;
+    }
+
+    table.vitamins tbody td:first-child {
+        text-align: left;
+        padding-left: 20px;
+        font-weight: 700;
+        background: rgba(109, 176, 231, 0.35);
+        transition: background 0.6s;
+    }
+
+    table.vit {
+        padding: 10px;
+        margin: 20px 0 0 200px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        background: #ffffff;
+        color: black;
+    }
+
+    table.vit th, table.vit td {
+        text-align: center;
+    }
+
+    table.vit thead {
+        line-height: 12px;
+        background: #33006f;
+        text-transform: uppercase;
+    }
+
+    table.vit thead th {
+        color: #fff;
+        padding: 10px;
+        letter-spacing: 1px;
+        vertical-align: bottom;
+    }
+
+    table.vit thead th:nth-child(1) {
+        width: 15%;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    table.vit thead th:nth-child(2) {
+        width: 15%;
+    }
+
+    table.vit thead th:nth-child(3) {
+        width: 15%;
+    }
+
+    table.vit thead th:nth-child(4) {
+        width: 15%;
+    }
+
+    table.vit tbody {
+        font-size: 1em;
+        line-height: 15px;
+    }
+
+    table.vit tbody tr {
+        border-top: 2px solid #58126A;
+        transition: background 0.6s, color 0.6s;
+    }
+
+    table.vit tbody tr:nth-child(even) {
+        background: white;
+    }
+
+    table.vit tbody tr:hover {
+        color: white;
+        background: #58126A;
+        font-weight: 600;
+    }
+
+    table.vit tbody td {
+        padding: 12px;
+    }
+
+    table.vit tbody td img {
+        width: 60px;
+    }
+
+    table.vit tbody tr:hover td:first-child {
+        background:black;
+    }
+
+    table.vit tbody td:first-child {
+        text-align: left;
+        padding-left: 20px;
+        font-weight: 700;
+        background: rgba(109, 176, 231, 0.35);
+        transition: background 0.6s;
+    }
+
+    .input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        
+    }
+
+    .center-button {
+        padding: 10px 30px;
+        margin-right: 30px;
+        margin-top: 10px;
+        display: felx;
+        text-decoration: none;
+        background-color: #33006f;
+        
+        border-radius: 12px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .center-button a {
+        color: white;
+    }
+
+    .center-button:hover {
+        background-color: #720e9e;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KOLEJ PROFESSIONAL MARA BERANANG</h1>
+    </header>
+    <h1>Hello, {{ voter.student_name }}!</h1>
+    <div class="box1">
+        <article>
+            <h2>The available positions are as follows;</h2>
+            <table class="vitamins">
+                <tr>
+                    <th>Position</th>
+                    <th>Description</th>
+                </tr>
+                {% for position in positions %}
+                <tr>
+                    <td>{{ position.position }}</td>
+                    <td>{{ position.description }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </article>
+    </div>
+    <div class="box1">
+        <article>
+            <h2>MPP Candidate Information Section</h2>
+            <table class="vitamins">
+                <thead>
+                    <tr>
+                        <th>Nominee ID</th>
+                        <th>Picture</th>
+                        <th>Position</th>
+                        <th>Session</th>
+                        <th>Year</th>
+                        <th>Manifesto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nominees in nominations %}
+                    <tr>
+                        <td>{{nominees.nomineeID}}</td>
+                        <td><img src="{% static 'img/kazuha.png' %}"></td>
+                        <td>{{nominees.position}} </td>
+                        <td>{{nominees.session}} </td>
+                        <td>{{nominees.year}}</td>
+                        <td>{{nominees.n_desc}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <div class="box1">
+        <h2>MPP Candidate Voting Section</h2>
+        <table class="vit">
+            <thead>
+                <tr>
+                    <th>Nominee ID</th>
+                    <th>Session</th>
+                    <th>Year</th>
+                    <th>Vote</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nominees in nominations %}
+                <tr>
+                    <td>{{ nominees.nomineeID }}</td>
+                    <td>{{ nominees.session }}</td>
+                    <td>{{ nominees.year }}</td>
+                    <td>
+                        {% if nominees.nomineeID in votes %}
+                            <p>Vote has already been casted!</p>
+                        {% else %}
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <input type="hidden" name="studentid" value="{{ voter.id }}">
+                        <input type="hidden" name="nomineeID" value="{{ nominees.nomineeID }}">
+                        <input type="submit" value="Vote">
+                    </form>
+                    {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="input">
+        <button class="center-button" type="submit"><a href="{% url 'login' %}">Log Out</a></button>
+        <button class="center-button" type="submit"><a href="{% url 'profile' studentid=voter.pk %}">Profile</a></button>
+    </div>
+</body>
+</html>

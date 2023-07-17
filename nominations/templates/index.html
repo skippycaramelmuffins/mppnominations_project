@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPP NOMINATION • HOMEPAGE</title>
+    {% load static %}
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+    body{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    section{
+        position: relative;
+        min-height: 67vh;
+        padding: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background:#ffffff;
+    }
+
+    .content{
+        position: relative;
+        top: -32%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .content .textBox{
+        position: relative;
+        max-width: 600px;
+    }
+
+    .content .textBox h2{
+        color: #333;
+        font-size: 2.5em;
+        line-height: 1.4em;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .content .textBox h2 span{
+        color:#f7981d ;
+        font-size: 1.2em;
+        font-weight: 400;
+    }
+
+    .content .textBox p{
+        color: black;
+    }
+
+    .content .textBox a{
+        display: inline-block;
+        margin-top: 20px;
+        padding: 8px 20px;
+        background: linear-gradient(240deg, #720e9e, #33006f);
+        color: white;
+        border-radius: 40px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-decoration: none;
+    }
+
+    @keyframes slidy {
+        0% { left: 0%; }
+        16.66% { left: 0%; }
+        20% { left: -100%; }
+        36.66% { left: -100%; }
+        40% { left: -200%; }
+        56.66% { left: -200%; }
+        60% { left: -300%; }
+        76.66% { left: -300%; }
+        80% { left: -400%; }
+        100% { left: -400%; }
+    }
+
+    #slider { 
+        overflow: hidden; 
+        margin: -20px -50px -70px 30px;
+    }
+
+    #slider figure { 
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: -20px;
+    top: 0;
+    font-size: 0;
+    animation: 20s slidy infinite; 
+    }
+    
+    #slider figure img {
+        width: 20%;
+    }
+
+    .circle{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(240deg, #720e9e, #33006f);
+        clip-path: circle(600px at right 800px);
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <div >
+
+        </div>
+        <div class="content">
+            <div class="textBox">
+                <h2>KPM BERANANG<br><span class="mpp">MPP Nomination And Voting <br>Platform</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Hic officia tempore aliquid cumque perferendis 
+                    quae molestias. Nostrum laudantium ullam, 
+                    iste, aut iure nesciunt odit a, esse tempore 
+                    architecto veniam autem.</p>
+                <a href="{% url 'login' %}">Log In</a>
+            </div>
+            <div id="slider">
+                <figure>
+                    <img src="{% static 'img/jieun.png' %}" alt="mpp1">
+                    <img src="{% static 'img/kazuha.png' %}" alt="mpp2">
+                    <img src="{% static 'img/min.png' %}" alt="mpp3">
+                    <img src="{% static 'img/jiu.png' %}" alt="mpp6">
+                    <img src="{% static 'img/taeoh.png' %}" alt="mpp4">
+                </figure>
+            </div>  
+        </div>
+    </section>
+</body>
+</html>

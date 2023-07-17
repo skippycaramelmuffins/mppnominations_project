@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Voted Nominees</h2>
+    <p>Details:</p>
+    <table>
+        <tr>
+            <th>Nominee ID</th>
+            <th>Student ID</th>
+            <th>Vote Date</th>
+        </tr>
+        {% for vote in voted %}
+        <tr>
+            <td>{{ vote.studentid.nomineeID }}</td>
+            <td>{{ vote.studentid.studentid }}</td>
+            <td>{{ vote.studentid.votedate }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/dashboard/{{ student.pk }}">Back</a>
+</body>
+</html>
